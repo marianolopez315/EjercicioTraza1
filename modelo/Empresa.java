@@ -1,3 +1,5 @@
+package modelo;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,17 +13,18 @@ import java.util.HashSet;
 @Builder
 
 public class Empresa {
+    private static int contador = 0;   // para autoincrementar
+    private int id;
     private String nombre;
     private String razonSocial;
-    private int cuit;
+    private long cuit;
     private String logo;
-    private HashSet<Sucursal> sucursales;
+    private HashSet<Sucursal> sucursales = new HashSet<>();
 
-    public Empresa(String nombre, String razonSocial) {
+    public Empresa(String nombre, long cuit) {
+        this.id = ++contador;
         this.nombre = nombre;
-        this.razonSocial = razonSocial;
+        this.cuit = cuit;
         this.sucursales = new HashSet<>();
     }
-
-
 }

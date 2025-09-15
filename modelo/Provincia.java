@@ -1,3 +1,5 @@
+package modelo;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -5,20 +7,19 @@ import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 
-public class Localidad {
+public class Provincia {
     private String nombre;
-    private Provincia provincia;
-    private HashSet<Domicilio> domicilios;
+    Pais pais;
+    private HashSet<Localidad> localidades;
 
-    public Localidad(String nombre, Provincia provincia) {
+    public Provincia(String nombre) {
         this.nombre = nombre;
-        this.domicilios = new HashSet<>();
+        this.localidades = new HashSet<>();
     }
 
 }
